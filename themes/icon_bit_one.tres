@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ca5vytba72ia1"]
+
+[ext_resource type="FontFile" uid="uid://cbr5nkqeem1s8" path="res://assets/IconBitOne.ttf" id="1_ctwql"]
+
+[resource]
+default_font = ExtResource("1_ctwql")
+default_font_size = 40
