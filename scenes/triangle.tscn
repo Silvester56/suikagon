@@ -2,6 +2,8 @@
 
 [node name="Triangle" type="RigidBody2D"]
 gravity_scale = 0.5
+contact_monitor = true
+max_contacts_reported = 1
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(10, 0, -5, 8.66, -5, -8.66)
