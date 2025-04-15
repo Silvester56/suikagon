@@ -1,3 +1,3 @@
-# suikashape
+# suikagon
 
-Suika game with geometric shapes instead of fruits.
+Suika game with polygons instead of fruits.
