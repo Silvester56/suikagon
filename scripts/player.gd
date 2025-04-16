@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var Triangle: PackedScene
+@export var Polygon: PackedScene
 
 var speed = 100
 var currentShape
@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 func drop() -> void:
 	canGetNextShape = true
 	currentShape.reparent($"..")
-	currentShape.gravity_scale = 0.5
+	currentShape.freeze = false
 	currentShape.connect("body_entered", _on_shape_collision)
 
 func _on_shape_collision(body) -> void:
@@ -30,7 +30,8 @@ func _on_shape_collision(body) -> void:
 
 func getNextShape() -> void:
 	if canGetNextShape:
-		currentShape = Triangle.instantiate()
-		currentShape.gravity_scale = 0
+		currentShape = Polygon.instantiate()
+		currentShape.setAttributes(3, 15)
+		currentShape.freeze = true
 		call_deferred("add_child", currentShape)
 		canGetNextShape = false

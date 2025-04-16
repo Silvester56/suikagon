@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://guo48c2kk88c"]
 
-[ext_resource type="Texture2D" uid="uid://hg1jngpaj0vc" path="res://assets/suikashape_bin.png" id="1_xwsia"]
+[ext_resource type="Texture2D" uid="uid://hg1jngpaj0vc" path="res://assets/suikagon_bin.png" id="1_xwsia"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_37wt5"]
 [ext_resource type="Texture2D" uid="uid://bj1lhw6ojwlse" path="res://assets/suikagon_player.png" id="3_03u2x"]
-[ext_resource type="PackedScene" uid="uid://cl8jliqdp472p" path="res://scenes/triangle.tscn" id="3_n5yn5"]
+[ext_resource type="PackedScene" uid="uid://cl8jliqdp472p" path="res://scenes/polygon.tscn" id="3_n5yn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_polh0"]
 texture = ExtResource("1_xwsia")
@@ -51,7 +51,7 @@ position = Vector2(449, 278)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_37wt5")
-Triangle = ExtResource("3_n5yn5")
+Polygon = ExtResource("3_n5yn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_bxt7l")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hg1jngpaj0vc"
-path="res://.godot/imported/suikashape_bin.png-d8634619f01433e5a31a2ceee40dfa1f.ctex"
+path="res://.godot/imported/suikagon_bin.png-8c87f0e3a51d088ce481e6c253077182.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/suikashape_bin.png"
-dest_files=["res://.godot/imported/suikashape_bin.png-d8634619f01433e5a31a2ceee40dfa1f.ctex"]
+source_file="res://assets/suikagon_bin.png"
+dest_files=["res://.godot/imported/suikagon_bin.png-8c87f0e3a51d088ce481e6c253077182.ctex"]
 
 [params]
 
