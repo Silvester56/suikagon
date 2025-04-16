@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func drop() -> void:
+	$Drop.play()
 	currentShape.freeze = false
 	currentShape.connect("body_entered", _on_shape_collision)
 	currentShape.reparent($"..")

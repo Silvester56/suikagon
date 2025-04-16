@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl8jliqdp472p"]
+[gd_scene load_steps=3 format=3 uid="uid://cl8jliqdp472p"]
 
 [ext_resource type="Script" path="res://scripts/polygon.gd" id="1_50fdp"]
+[ext_resource type="AudioStream" uid="uid://bhymxacp61yhy" path="res://assets/merge.mp3" id="2_wts3n"]
 
 [node name="Polygon" type="RigidBody2D"]
 gravity_scale = 0.5
@@ -14,5 +15,9 @@ polygon = PackedVector2Array(10, 0, -5, 8.66, -5, -8.66)
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(1, 0.709804, 1, 1)
 polygon = PackedVector2Array(10, 0, -5, 8.66, -5, -8.66)
+
+[node name="Merge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wts3n")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

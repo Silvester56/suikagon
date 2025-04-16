@@ -16,7 +16,11 @@ func setAttributes(index: int) -> void:
 	$Polygon2D.polygon = polygonVectorArray
 	$Polygon2D.color = allColors[index]
 
+func playMergeSound() -> void:
+	$Merge.play()
+
 func _on_body_entered(body: Node) -> void:
 	if body.has_method("setAttributes") and body.currentIndex == currentIndex and currentIndex < len(allEdges) - 1:
+		body.playMergeSound()
 		body.setAttributes(currentIndex + 1)
 		queue_free()
