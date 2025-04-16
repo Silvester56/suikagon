@@ -14,3 +14,5 @@ polygon = PackedVector2Array(10, 0, -5, 8.66, -5, -8.66)
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(1, 0.709804, 1, 1)
 polygon = PackedVector2Array(10, 0, -5, 8.66, -5, -8.66)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
