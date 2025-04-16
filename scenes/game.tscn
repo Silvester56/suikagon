@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://guo48c2kk88c"]
+[gd_scene load_steps=14 format=4 uid="uid://guo48c2kk88c"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_jlesc"]
 [ext_resource type="Texture2D" uid="uid://hg1jngpaj0vc" path="res://assets/suikagon_bin.png" id="1_xwsia"]
@@ -54,6 +54,9 @@ gradient = SubResource("Gradient_sscdt")
 width = 350
 height = 3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mgps"]
+size = Vector2(16, 16)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jlesc")
 
@@ -62,7 +65,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAA
 tile_set = SubResource("TileSet_saojy")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(375, 325)
+z_index = 1
+position = Vector2(424, 325)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_37wt5")
@@ -126,6 +130,22 @@ text = "8"
 layout_mode = 2
 theme = ExtResource("6_rwg43")
 text = "D"
+
+[node name="PlayerLimitLeft" type="StaticBody2D" parent="."]
+position = Vector2(360, 326)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLimitLeft"]
+shape = SubResource("RectangleShape2D_5mgps")
+
+[node name="PlayerLimitRight" type="StaticBody2D" parent="."]
+position = Vector2(664, 326)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLimitRight"]
+shape = SubResource("RectangleShape2D_5mgps")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
