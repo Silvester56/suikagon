@@ -16,13 +16,15 @@ func setAttributes(index: int) -> void:
 	$CollisionShape2D.set_deferred("polygon", polygonVectorArray)
 	$Polygon2D.polygon = polygonVectorArray
 	$Polygon2D.color = allColors[index]
+	$GPUParticles2D.process_material.color = Color(1 - allColors[index].r, 1 - allColors[index].g, 1 - allColors[index].b, allColors[index].a)
 
-func playMergeSound() -> void:
+func playMergeEffects() -> void:
+	$GPUParticles2D.emitting = true
 	$Merge.play()
 
 func _on_body_entered(body: Node) -> void:
 	if body.has_method("setAttributes") and body.currentIndex == currentIndex and currentIndex < len(allEdges) - 1:
 		$"..".addToScore(points[currentIndex])
-		body.playMergeSound()
+		body.playMergeEffects()
 		body.setAttributes(currentIndex + 1)
 		queue_free()

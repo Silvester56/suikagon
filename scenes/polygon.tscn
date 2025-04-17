@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl8jliqdp472p"]
+[gd_scene load_steps=4 format=3 uid="uid://cl8jliqdp472p"]
 
 [ext_resource type="Script" path="res://scripts/polygon.gd" id="1_50fdp"]
 [ext_resource type="AudioStream" uid="uid://bhymxacp61yhy" path="res://assets/merge.mp3" id="2_wts3n"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b2goi"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+damping_max = 100.0
+scale_min = 2.0
+scale_max = 8.0
 
 [node name="Polygon" type="RigidBody2D"]
 gravity_scale = 0.5
@@ -19,5 +31,13 @@ polygon = PackedVector2Array(10, 0, -5, 8.66, -5, -8.66)
 [node name="Merge" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wts3n")
 bus = &"SFX"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_b2goi")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.25
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
