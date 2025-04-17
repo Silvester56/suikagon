@@ -34,6 +34,8 @@ func _on_shape_collision(body) -> void:
 func getNextShape() -> void:
 	if canGetNextShape:
 		currentShape = Polygon.instantiate()
+		currentShape.z_index = 1
+		currentShape.z_as_relative = false
 		currentShape.setAttributes(rng.randi_range(0, 4))
 		currentShape.freeze = true
 		call_deferred("add_child", currentShape)

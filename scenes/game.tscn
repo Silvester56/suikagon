@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://guo48c2kk88c"]
+[gd_scene load_steps=19 format=4 uid="uid://guo48c2kk88c"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_jlesc"]
 [ext_resource type="Texture2D" uid="uid://hg1jngpaj0vc" path="res://assets/suikagon_bin.png" id="1_xwsia"]
@@ -43,6 +43,15 @@ texture = ExtResource("1_xwsia")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_polh0")
 
+[sub_resource type="Gradient" id="Gradient_5yxaj"]
+offsets = PackedFloat32Array(0, 0.0357143, 0.0952381)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.481791, 0.481789, 0.481789, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qfrr7"]
+gradient = SubResource("Gradient_5yxaj")
+width = 2
+height = 420
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxt7l"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3sx51"]
@@ -68,12 +77,18 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAA
 tile_set = SubResource("TileSet_saojy")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-z_index = 1
+z_index = 2
+z_as_relative = false
 position = Vector2(424, 325)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_37wt5")
 Polygon = ExtResource("3_n5yn5")
+
+[node name="Ray" type="Sprite2D" parent="Player"]
+z_as_relative = false
+position = Vector2(0, 218)
+texture = SubResource("GradientTexture2D_qfrr7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_bxt7l")
