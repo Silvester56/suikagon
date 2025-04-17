@@ -192,10 +192,19 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
+[node name="Quit" type="Button" parent="."]
+offset_left = 963.0
+offset_top = 5.0
+offset_right = 1019.0
+offset_bottom = 61.0
+theme = ExtResource("6_rwg43")
+text = "Q"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
 [connection signal="pressed" from="GameOverScreen/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="GameOverScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 
 [editable path="SFXSlider"]
