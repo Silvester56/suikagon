@@ -19,6 +19,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	$GameOverTimer.stop()
 
 func _on_game_over_timer_timeout() -> void:
+	$GameOverSFX.play()
 	$GameOverScreen.show()
 	get_tree().paused = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://guo48c2kk88c"]
+[gd_scene load_steps=22 format=4 uid="uid://guo48c2kk88c"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_jlesc"]
 [ext_resource type="Texture2D" uid="uid://hg1jngpaj0vc" path="res://assets/suikagon_bin.png" id="1_xwsia"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cq6kuccwnpfm8" path="res://scenes/volume_slider.tscn" id="7_dywe0"]
 [ext_resource type="AudioStream" uid="uid://wswppdl66cp2" path="res://assets/mcm.mp3" id="8_ivupv"]
 [ext_resource type="FontFile" uid="uid://coose41ix416p" path="res://assets/PIXEARG_.TTF" id="10_28vnr"]
+[ext_resource type="AudioStream" uid="uid://c7ybx7fjmr5m4" path="res://assets/gameover.mp3" id="11_6m6ak"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_polh0"]
 texture = ExtResource("1_xwsia")
@@ -213,6 +214,11 @@ offset_bottom = 60.0
 theme = SubResource("Theme_phamd")
 theme_override_colors/font_color = Color(0.12549, 0.164706, 0.145098, 1)
 text = "0"
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = ExtResource("11_6m6ak")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
