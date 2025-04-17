@@ -1,10 +1,16 @@
 extends Node2D
 
+var score = 0
+
 func _process(delta: float) -> void:
 	if $GameOverTimer.time_left > 0:
 		$Area2D/Sprite2D.modulate = Color(1, 1, 1, 1 - $GameOverTimer.time_left / $GameOverTimer.wait_time)
 	else:
 		$Area2D/Sprite2D.modulate = Color(1, 1, 1, 0)
+
+func addToScore(points):
+	score = score + points
+	$Score.text = str(score)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	$GameOverTimer.start()
