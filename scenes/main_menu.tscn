@@ -37,10 +37,17 @@ layout_mode = 2
 theme = ExtResource("1_r288c")
 text = "M"
 
+[node name="Scores" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_r288c")
+disabled = true
+text = "V"
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_r288c")
 text = "D"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Scores" to="." method="_on_scores_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
