@@ -1,6 +1,8 @@
 extends Control
 
 func _ready() -> void:
+	if OS.get_name() == "Web":
+		$VBoxContainer/Quit.hide()
 	if len(Global.savedScores.scores) > 0:
 		$VBoxContainer/Scores.disabled = false
 
