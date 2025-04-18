@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0a535awjh6pt"]
+[gd_scene load_steps=4 format=3 uid="uid://d0a535awjh6pt"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_fqm7m"]
 [ext_resource type="Theme" uid="uid://ca5vytba72ia1" path="res://themes/icon_bit_one.tres" id="1_r288c"]
+[ext_resource type="FontFile" uid="uid://c36mqkolt0hhv" path="res://assets/IconBitTwo.ttf" id="3_l0as5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -40,8 +41,15 @@ text = "M"
 [node name="Scores" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_r288c")
+theme_override_fonts/font = ExtResource("3_l0as5")
 disabled = true
-text = "V"
+text = "l"
+
+[node name="About" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_r288c")
+theme_override_fonts/font = ExtResource("3_l0as5")
+text = "?"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -50,4 +58,5 @@ text = "D"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Scores" to="." method="_on_scores_pressed"]
+[connection signal="pressed" from="VBoxContainer/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
