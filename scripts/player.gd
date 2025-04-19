@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	getNextShape()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var directionX := Input.get_axis("left", "right")
 	if Input.is_action_just_pressed("drop") and !canGetNextShape:
 		drop()
@@ -25,9 +25,10 @@ func drop() -> void:
 	currentShape.freeze = false
 	currentShape.connect("body_entered", _on_shape_collision)
 	currentShape.reparent($"..")
+	currentShape.connect("tree_exited", $".."._on_polygon_free)
 	canGetNextShape = true
 
-func _on_shape_collision(body) -> void:
+func _on_shape_collision(_body) -> void:
 	currentShape.disconnect("body_entered", _on_shape_collision)
 	getNextShape()
 

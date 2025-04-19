@@ -6,7 +6,7 @@ func _ready() -> void:
 	if len(Global.savedScores.scores) > 0:
 		$HighScore.text = str(Global.savedScores.scores[0])
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $GameOverTimer.time_left > 0:
 		$Area2D/Sprite2D.modulate = Color(1, 1, 1, 1 - $GameOverTimer.time_left / $GameOverTimer.wait_time)
 	else:
@@ -16,13 +16,19 @@ func addToScore(points):
 	score = score + points
 	$Score.text = str(score)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func checkPresenceOfShapes() -> void:
+	if len($Area2D.get_overlapping_bodies()) == 0 or $Area2D.get_overlapping_bodies().all(func(e) : return !e.detectable):
+		$GameOverTimer.stop()
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if $GameOverTimer.is_stopped():
 		$GameOverTimer.start()
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if len($Area2D.get_overlapping_bodies()) == 0:
-		$GameOverTimer.stop()
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	checkPresenceOfShapes()
+
+func _on_polygon_free() -> void:
+	checkPresenceOfShapes()
 
 func _on_game_over_timer_timeout() -> void:
 	$GameOverSFX.play()
